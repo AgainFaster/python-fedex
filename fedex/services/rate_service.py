@@ -123,5 +123,5 @@ class FedexRateServiceRequest(FedexBaseService):
 
         self.RequestedShipment.RequestedPackageLineItems.append(package_item)
         package_weight = package_item.Weight.Value
-        self.RequestedShipment.TotalWeight.Value += package_weight
-        self.RequestedShipment.PackageCount += 1
+        self.RequestedShipment.TotalWeight.Value += float(package_weight)
+        self.RequestedShipment.PackageCount += package_item.GroupPackageCount
